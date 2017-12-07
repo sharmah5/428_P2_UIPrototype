@@ -11,7 +11,7 @@ package desktop;
  */
 public class PDF3 extends javax.swing.JInternalFrame {
     
-    public static String pdf2Text = "An Examination of Daily Information Needs and Sharing Opportunities";
+    public static String pdf3Text = "An Examination of Daily Information Needs and Sharing Opportunities\n";
 
     /**
      * Creates new form PDF1

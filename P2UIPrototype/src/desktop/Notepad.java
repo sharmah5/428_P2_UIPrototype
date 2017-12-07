@@ -31,7 +31,8 @@ public class Notepad extends javax.swing.JInternalFrame {
         notepadButtonsPanel = new javax.swing.JPanel();
         pasteButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
-        notepadText = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        notepadText = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -45,8 +46,18 @@ public class Notepad extends javax.swing.JInternalFrame {
         notepadButtonsPanel.setBackground(new java.awt.Color(255, 255, 255));
 
         pasteButton.setText("Paste");
+        pasteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pasteButtonActionPerformed(evt);
+            }
+        });
 
         clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout notepadButtonsPanelLayout = new javax.swing.GroupLayout(notepadButtonsPanel);
         notepadButtonsPanel.setLayout(notepadButtonsPanelLayout);
@@ -69,17 +80,21 @@ public class Notepad extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
+        notepadText.setColumns(20);
+        notepadText.setRows(5);
+        jScrollPane1.setViewportView(notepadText);
+
         javax.swing.GroupLayout notepadPanelLayout = new javax.swing.GroupLayout(notepadPanel);
         notepadPanel.setLayout(notepadPanelLayout);
         notepadPanelLayout.setHorizontalGroup(
             notepadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(notepadButtonsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(notepadText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1)
         );
         notepadPanelLayout.setVerticalGroup(
             notepadPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, notepadPanelLayout.createSequentialGroup()
-                .addComponent(notepadText, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(notepadButtonsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -98,12 +113,29 @@ public class Notepad extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void pasteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteButtonActionPerformed
+        // TODO add your handling code here:
+        if (Main.pdf1TextCopied == true) {
+            notepadText.setText(notepadText.getText() + PDF1.pdf1Text);
+        } else if (Main.pdf2TextCopied == true) {
+            notepadText.setText(notepadText.getText() + PDF2.pdf2Text);
+        } else if (Main.pdf3TextCopied == true) {
+            notepadText.setText(notepadText.getText() + PDF3.pdf3Text);
+        }
+    }//GEN-LAST:event_pasteButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        // TODO add your handling code here:
+        notepadText.setText("");
+    }//GEN-LAST:event_clearButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton clearButton;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel notepadButtonsPanel;
     private javax.swing.JPanel notepadPanel;
-    private javax.swing.JLabel notepadText;
+    private javax.swing.JTextArea notepadText;
     private javax.swing.JButton pasteButton;
     // End of variables declaration//GEN-END:variables
 }

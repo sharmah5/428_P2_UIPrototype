@@ -11,7 +11,7 @@ package desktop;
  */
 public class PDF1 extends javax.swing.JInternalFrame {
     
-    public static String pdf1Text = "Prototyping and Sampling Experience to Evaluate Ubiquitous Computing Privacy in the Real World";
+    public static String pdf1Text = "Prototyping and Sampling Experience to Evaluate Ubiquitous Computing Privacy in the Real World\n";
 
     /**
      * Creates new form PDF1

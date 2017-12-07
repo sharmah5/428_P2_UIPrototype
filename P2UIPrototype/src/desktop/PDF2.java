@@ -11,7 +11,7 @@ package desktop;
  */
 public class PDF2 extends javax.swing.JInternalFrame {
     
-    public static String pdf2Text = "Breaking the Disposable Technology Paradigm: Opportunities for Sustainable Interaction Design for Mobile Phones";
+    public static String pdf2Text = "Breaking the Disposable Technology Paradigm: Opportunities for Sustainable Interaction Design for Mobile Phones\n";
 
     /**
      * Creates new form PDF1
