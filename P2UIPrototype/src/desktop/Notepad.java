@@ -149,6 +149,7 @@ public class Notepad extends javax.swing.JInternalFrame {
         pasteButtonActionPerformed(evt);
         
         Main.recall = true;
+        Main.makeRepeatVisible(evt);
     }//GEN-LAST:event_recallButtonActionPerformed
 
 
@@ -157,7 +158,7 @@ public class Notepad extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel notepadButtonsPanel;
     private javax.swing.JPanel notepadPanel;
-    private javax.swing.JTextArea notepadText;
+    public javax.swing.JTextArea notepadText;
     private javax.swing.JButton pasteButton;
     private javax.swing.JButton recallButton;
     // End of variables declaration//GEN-END:variables

@@ -66,6 +66,11 @@ public class FileExplorer extends javax.swing.JInternalFrame {
         });
 
         repeatButton.setText("Repeat Paste");
+        repeatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                repeatButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout fileExplorerPanelLayout = new javax.swing.GroupLayout(fileExplorerPanel);
         fileExplorerPanel.setLayout(fileExplorerPanelLayout);
@@ -150,6 +155,25 @@ public class FileExplorer extends javax.swing.JInternalFrame {
             pdf3.setVisible(true);
         }
     }//GEN-LAST:event_rightClickButtonActionPerformed
+
+    private void repeatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repeatButtonActionPerformed
+        // TODO add your handling code here:
+        String txt = "";
+        
+        if (pdf1.isSelected()) {
+            txt = txt + PDF1.pdf1Text;
+        }
+        
+        if (pdf2.isSelected()) {
+            txt = txt + PDF2.pdf2Text;
+        }
+        
+        if (pdf3.isSelected()) {
+            txt = txt + PDF3.pdf3Text;
+        }
+        
+        Main.pasteMultiTitles(evt, txt);
+    }//GEN-LAST:event_repeatButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

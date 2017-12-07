@@ -16,8 +16,11 @@ public class Main extends javax.swing.JFrame {
     
     public static boolean recall = false;
     
-    public FileExplorer fe;
-    public Notepad np;
+    public static boolean explorerCreated = false;
+    public static boolean notepadCreated = false;
+    
+    public static FileExplorer fe = new FileExplorer();
+    public static Notepad np = new Notepad();
 
     /**
      * Creates new form Main
@@ -27,8 +30,16 @@ public class Main extends javax.swing.JFrame {
         
     }
     
-    public void makeRepeatVisible(java.awt.event.ActionEvent evt) {
+    public static void makeRepeatVisible(java.awt.event.ActionEvent evt) {
         fe.repeatButton.setVisible(true);
+    }
+    
+    public static void pasteMultiTitles(java.awt.event.ActionEvent evt, String txt) {
+        np.notepadText.setText(np.notepadText.getText() + txt);
+        
+        pdf1TextCopied = false;
+        pdf2TextCopied = false;
+        pdf3TextCopied = false;
     }
 
     /**
@@ -140,17 +151,20 @@ public class Main extends javax.swing.JFrame {
 
     private void folderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folderButtonActionPerformed
         // TODO add your handling code here:
-        fe = new FileExplorer();
-        desktopPane.add(fe);
-        fe.setVisible(true);
-        
+        if (explorerCreated == false) {
+            desktopPane.add(fe);
+            fe.setVisible(true);
+            explorerCreated = true;
+        }        
     }//GEN-LAST:event_folderButtonActionPerformed
 
     private void notepadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notepadButtonActionPerformed
         // TODO add your handling code here:
-        np = new Notepad();
-        desktopPane.add(np);
-        np.setVisible(true);
+        if (notepadCreated == false) {
+            desktopPane.add(np);
+            np.setVisible(true);
+            explorerCreated = true;
+        }
     }//GEN-LAST:event_notepadButtonActionPerformed
 
     /**
