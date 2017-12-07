@@ -34,6 +34,7 @@ public class FileExplorer extends javax.swing.JInternalFrame {
         pdf2 = new javax.swing.JCheckBox();
         pdf3 = new javax.swing.JCheckBox();
         rightClickButton = new javax.swing.JButton();
+        repeatButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -54,8 +55,8 @@ public class FileExplorer extends javax.swing.JInternalFrame {
 
         pdf3.setText("pdf3.pdf");
 
-        rightClickButton.setBackground(new java.awt.Color(255, 255, 255));
-        rightClickButton.setForeground(new java.awt.Color(255, 255, 255));
+        rightClickButton.setBackground(new java.awt.Color(204, 204, 204));
+        rightClickButton.setText("Open");
         rightClickButton.setBorder(null);
         rightClickButton.setBorderPainted(false);
         rightClickButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,21 +65,28 @@ public class FileExplorer extends javax.swing.JInternalFrame {
             }
         });
 
+        repeatButton.setText("Repeat Paste");
+
         javax.swing.GroupLayout fileExplorerPanelLayout = new javax.swing.GroupLayout(fileExplorerPanel);
         fileExplorerPanel.setLayout(fileExplorerPanelLayout);
         fileExplorerPanelLayout.setHorizontalGroup(
             fileExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(fileExplorerPanelLayout.createSequentialGroup()
                 .addComponent(leftPane, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(fileExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fileExplorerPanelLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(fileExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(pdf1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pdf2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(pdf3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap())
-                    .addComponent(rightClickButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(fileExplorerPanelLayout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(rightClickButton, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47)
+                        .addComponent(repeatButton)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addComponent(topPane, javax.swing.GroupLayout.DEFAULT_SIZE, 638, Short.MAX_VALUE)
         );
         fileExplorerPanelLayout.setVerticalGroup(
@@ -89,16 +97,21 @@ public class FileExplorer extends javax.swing.JInternalFrame {
                 .addGroup(fileExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(fileExplorerPanelLayout.createSequentialGroup()
                         .addComponent(leftPane, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(277, Short.MAX_VALUE))
+                        .addContainerGap(22, Short.MAX_VALUE))
                     .addGroup(fileExplorerPanelLayout.createSequentialGroup()
                         .addComponent(pdf1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pdf2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(pdf3)
-                        .addGap(18, 18, 18)
-                        .addComponent(rightClickButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(fileExplorerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rightClickButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(repeatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23))))
         );
+
+        repeatButton.setVisible(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +123,7 @@ public class FileExplorer extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(fileExplorerPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(fileExplorerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -118,22 +131,23 @@ public class FileExplorer extends javax.swing.JInternalFrame {
 
     private void rightClickButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rightClickButtonActionPerformed
         // TODO add your handling code here:
+
         if (pdf1.isSelected()) {
             PDF1 pdf1 = new PDF1();
             Main.desktopPane.add(pdf1);
-            pdf1.show();
+            pdf1.setVisible(true);
         }
-        
+
         if (pdf2.isSelected()) {
             PDF2 pdf2 = new PDF2();
             Main.desktopPane.add(pdf2);
-            pdf2.show();
+            pdf2.setVisible(true);
         }
-        
+
         if (pdf3.isSelected()) {
             PDF3 pdf3 = new PDF3();
             Main.desktopPane.add(pdf3);
-            pdf3.show();
+            pdf3.setVisible(true);
         }
     }//GEN-LAST:event_rightClickButtonActionPerformed
 
@@ -144,6 +158,7 @@ public class FileExplorer extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox pdf1;
     private javax.swing.JCheckBox pdf2;
     private javax.swing.JCheckBox pdf3;
+    public javax.swing.JButton repeatButton;
     private javax.swing.JButton rightClickButton;
     private javax.swing.JLabel topPane;
     // End of variables declaration//GEN-END:variables

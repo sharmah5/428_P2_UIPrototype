@@ -13,6 +13,11 @@ public class Main extends javax.swing.JFrame {
     public static boolean pdf1TextCopied = false;
     public static boolean pdf2TextCopied = false;
     public static boolean pdf3TextCopied = false;
+    
+    public static boolean recall = false;
+    
+    public FileExplorer fe;
+    public Notepad np;
 
     /**
      * Creates new form Main
@@ -20,6 +25,10 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         
+    }
+    
+    public void makeRepeatVisible(java.awt.event.ActionEvent evt) {
+        fe.repeatButton.setVisible(true);
     }
 
     /**
@@ -131,17 +140,17 @@ public class Main extends javax.swing.JFrame {
 
     private void folderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folderButtonActionPerformed
         // TODO add your handling code here:
-        FileExplorer fe = new FileExplorer();
+        fe = new FileExplorer();
         desktopPane.add(fe);
-        fe.show();
+        fe.setVisible(true);
         
     }//GEN-LAST:event_folderButtonActionPerformed
 
     private void notepadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notepadButtonActionPerformed
         // TODO add your handling code here:
-        Notepad np = new Notepad();
+        np = new Notepad();
         desktopPane.add(np);
-        np.show();
+        np.setVisible(true);
     }//GEN-LAST:event_notepadButtonActionPerformed
 
     /**

@@ -31,6 +31,7 @@ public class Notepad extends javax.swing.JInternalFrame {
         notepadButtonsPanel = new javax.swing.JPanel();
         pasteButton = new javax.swing.JButton();
         clearButton = new javax.swing.JButton();
+        recallButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         notepadText = new javax.swing.JTextArea();
 
@@ -59,16 +60,25 @@ public class Notepad extends javax.swing.JInternalFrame {
             }
         });
 
+        recallButton.setText("Paste & Recall");
+        recallButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recallButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout notepadButtonsPanelLayout = new javax.swing.GroupLayout(notepadButtonsPanel);
         notepadButtonsPanel.setLayout(notepadButtonsPanelLayout);
         notepadButtonsPanelLayout.setHorizontalGroup(
             notepadButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(notepadButtonsPanelLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
+                .addGap(50, 50, 50)
                 .addComponent(pasteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 137, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
+                .addComponent(recallButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116))
+                .addGap(70, 70, 70))
         );
         notepadButtonsPanelLayout.setVerticalGroup(
             notepadButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -76,7 +86,8 @@ public class Notepad extends javax.swing.JInternalFrame {
                 .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(notepadButtonsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pasteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(clearButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(recallButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -115,6 +126,8 @@ public class Notepad extends javax.swing.JInternalFrame {
 
     private void pasteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pasteButtonActionPerformed
         // TODO add your handling code here:
+        Main.recall = false;
+        
         if (Main.pdf1TextCopied == true) {
             notepadText.setText(notepadText.getText() + PDF1.pdf1Text);
         } else if (Main.pdf2TextCopied == true) {
@@ -122,12 +135,21 @@ public class Notepad extends javax.swing.JInternalFrame {
         } else if (Main.pdf3TextCopied == true) {
             notepadText.setText(notepadText.getText() + PDF3.pdf3Text);
         }
+        
+        //recallButton.setVisible(true);
     }//GEN-LAST:event_pasteButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
         // TODO add your handling code here:
         notepadText.setText("");
     }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void recallButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recallButtonActionPerformed
+        // TODO add your handling code here:
+        pasteButtonActionPerformed(evt);
+        
+        Main.recall = true;
+    }//GEN-LAST:event_recallButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -137,5 +159,6 @@ public class Notepad extends javax.swing.JInternalFrame {
     private javax.swing.JPanel notepadPanel;
     private javax.swing.JTextArea notepadText;
     private javax.swing.JButton pasteButton;
+    private javax.swing.JButton recallButton;
     // End of variables declaration//GEN-END:variables
 }
