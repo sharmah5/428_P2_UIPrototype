@@ -86,7 +86,10 @@ public class PDF1 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         Main.pdf2TextCopied = false;
         Main.pdf3TextCopied = false;
-        Main.pdf1TextCopied = true;        
+        Main.pdf1TextCopied = true; 
+        
+        Main.recall = false;
+        Main.fe.repeatButton.setVisible(false);
     }//GEN-LAST:event_pdf1TitleButtonActionPerformed
 
 

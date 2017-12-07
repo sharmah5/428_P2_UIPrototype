@@ -88,6 +88,9 @@ public class PDF3 extends javax.swing.JInternalFrame {
         Main.pdf1TextCopied = false;
         Main.pdf2TextCopied = false;
         Main.pdf3TextCopied = true;
+        
+        Main.recall = false;
+        Main.fe.repeatButton.setVisible(false);
     }//GEN-LAST:event_pdf3TitleButtonActionPerformed
 
 
